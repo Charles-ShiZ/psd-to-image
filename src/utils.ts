@@ -28,9 +28,6 @@ export const downFile = (type: string, data: any, fileName = '') => {
     link.click()
     window.URL.revokeObjectURL(link.href)
     document.body.removeChild(link)
-  } else if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-    // new Blob([data])
-    navigator.msSaveBlob(data, fileName)
   } else {
     const link = document.createElement('a')
     link.href = window.URL.createObjectURL(data)
